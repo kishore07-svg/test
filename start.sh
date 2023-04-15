@@ -6,6 +6,6 @@ pkg install -y termux-api python git && \
 termux-setup-storage && \
 git clone https://github.com/kishore07-svg/test && \
 cd test && \
-pip3 install -q -r requirements.txt && \
+pip install -q -r requirements.txt && \
 chmod +x main.py && \
 python main.py
